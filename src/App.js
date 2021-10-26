@@ -1,8 +1,13 @@
 import Header from "./headerTop/Header";
+import Home from "./pages/home/Home";
 
 function App() {
   return (
-    <Header/>
+    <>
+    <Header />
+      <Home />
+
+      </>
   );
 }
 
