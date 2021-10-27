@@ -11,14 +11,13 @@ export default function Home() {
         const jsonData = await response.json();
         console.log(jsonData)
         const values = jsonData.filter((post) => post.id % 5 === 0);
-            setPosts(values)
+        setPosts(values)
     }
     
     useEffect(() => {
         postsImages();
     },[])
 
-  
         return (
         <>
         <div className="home">
