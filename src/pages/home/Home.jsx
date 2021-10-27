@@ -3,24 +3,23 @@ import Title from "../../Title/Title"
 import "./home.css"
 
 export default function Home() {
-    //https://jsonplaceholder.typicode.com/posts
 
     const [posts, setPosts] = useState([]);
-    console.log(posts)
+    console.log(posts);
+    const postsImages = async () => {
+        const response = await fetch("https://jsonplaceholder.typicode.com/posts")
+        const jsonData = await response.json();
+        console.log(jsonData)
+        const values = jsonData.filter((post) => post.id % 5 === 0);
+            setPosts(values)
+    }
+    
     useEffect(() => {
         postsImages();
     },[])
 
-    const postsImages = async() => {
-        const response = await fetch("https://jsonplaceholder.typicode.com/posts")
-        // console.log(response);
-        const jsonData = await response.json();
-        // console.log(jsonData)
-        // const values = posts.filter((post) => post.id % 5 === 0);
-        setPosts(jsonData)
-    }
-    postsImages();
-    return (
+  
+        return (
         <>
         <div className="home">
             <Title />
