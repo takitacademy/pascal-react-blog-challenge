@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route,  } from "react-router-dom";
 import Header from "./headerTop/Header";
 import Home from "./pages/home/Home";
 import SinglePost from "./pages/singlePost/SinglePost";
@@ -11,7 +11,7 @@ function App() {
         <Route exact path="/">
           <Home />
         </Route>
-        <Route path="/singlepost">
+        <Route path="/singlePost">
           <SinglePost />
         </Route>
       </Switch>
