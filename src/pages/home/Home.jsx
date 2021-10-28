@@ -1,8 +1,12 @@
 import  {useState, useEffect} from "react"
+import { useHistory } from "react-router-dom";
+
 import Title from "../../Title/Title"
 import "./home.css"
 
 export default function Home() {
+
+    const history = useHistory()
 
     const [posts, setPosts] = useState([]);
     console.log(posts);
@@ -16,7 +20,11 @@ export default function Home() {
     
     useEffect(() => {
         postsImages();
-    },[])
+    }, [])
+    
+    const getSinglePost = async (singlePost) => {
+        history.push({ pathname: '/singlePost', state: {item: singlePost} })
+    }
 
         return (
         <>
@@ -38,7 +46,8 @@ export default function Home() {
                 {posts.map((values) => {
                     return (
                         <>
-                         <div className="posts">
+                            <div onClick={() => getSinglePost(values)}
+                                className="posts">
                         <div className="homePosts">
                           <img src="https://images.pexels.com/photos/9705763/pexels-photo-9705763.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="" />
                         </div>
